@@ -1,6 +1,6 @@
 //
 //  ImageLoaderView.swift
-//  SwiftfulSwiftUIInPractice
+//  MimicAppsSwiftUI
 //
 //  Created by Johnny Greco on 8/17/24.
 //
