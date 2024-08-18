@@ -20,7 +20,12 @@ struct Product: Codable, Identifiable {
     let brand: String?
     let sku: String
     let weight: Int
+    let category: String
     let warrantyInformation, shippingInformation: String
     let images: [String]
     let thumbnail: String
+    
+    var firstImage: String {
+        images.first ?? Constants.randomImage
+    }
 }
