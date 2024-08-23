@@ -13,6 +13,9 @@ struct SpotifyHomeView: View {
     @State private var currentUser: User? = nil
     @State private var selectedCategory: Category? = nil
     @State private var products: [Product] = []
+    @State private var productRows: [ProductRow] = []
+    
+    
     
     var body: some View {
         ZStack {
@@ -29,15 +32,11 @@ struct SpotifyHomeView: View {
                                 newReleaseSection(product)
                                     .padding(.horizontal, 16)
                             }
+                            
+                            listRows
+                            
                         }
-                        .padding(.horizontal, 16)
-                        
-                        ForEach(0..<20) { _ in
-                            Rectangle()
-                                .fill(.gray)
-                                .frame(width: 200, height: 200)
-                        }
-                        
+
                     } header: {
                         header
                     }
@@ -59,6 +58,14 @@ struct SpotifyHomeView: View {
         do {
             currentUser = try await DatabaseHelper().getUsers().first
             products = try await Array(DatabaseHelper().getProducts().prefix(8))
+            
+            var rows: [ProductRow] = []
+            let allBrands = Set(products.map({ $0.brand }))
+            for brand in allBrands {
+//                let products = self.products.filter({ $0.brand == brand })
+                rows.append(ProductRow(title: brand!.capitalized, product: products))
+            }
+            productRows = rows
         } catch {
             
         }
@@ -108,6 +115,8 @@ struct SpotifyHomeView: View {
                     title: product.title,
                     imageName: product.firstImage
                 )
+                .asButton(.press) {
+                }
             }
         }
 
@@ -127,6 +136,39 @@ struct SpotifyHomeView: View {
                 
             }
         )
+
+    }
+    
+    private var listRows: some View {
+        ForEach(productRows) { row in
+            VStack(spacing: 8) {
+                Text(row.title)
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.spotifyWhite)
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                    .padding(.horizontal, 16)
+                
+                
+                ScrollView(.horizontal) {
+                    HStack(alignment: .top, spacing: 16) {
+                        ForEach(row.product) { product in
+                            ImageTileCell(
+                                imageSize: 120,
+                                imageName: product.firstImage,
+                                title: product.title
+                            )
+                            .asButton(.press) {
+                            }
+                            
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .scrollIndicators(.hidden)
+            }
+        }
+
     }
     
     

@@ -24,6 +24,7 @@
 		C7A5F2762C7120C10006A392 /* SpotifyHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5F2752C7120C10006A392 /* SpotifyHomeView.swift */; };
 		C7A5F2782C71246E0006A392 /* SpotifyCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5F2772C71246E0006A392 /* SpotifyCategoryCell.swift */; };
 		C7A5F27B2C71265A0006A392 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5F27A2C71265A0006A392 /* Category.swift */; };
+		C7DC155D2C7816F900C641CD /* ImageTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC155C2C7816F900C641CD /* ImageTileCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C7A5F2752C7120C10006A392 /* SpotifyHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyHomeView.swift; sourceTree = "<group>"; };
 		C7A5F2772C71246E0006A392 /* SpotifyCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCategoryCell.swift; sourceTree = "<group>"; };
 		C7A5F27A2C71265A0006A392 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		C7DC155C2C7816F900C641CD /* ImageTileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTileCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		C7A5F2742C7120B00006A392 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C7DC155C2C7816F900C641CD /* ImageTileCell.swift */,
 				C7A5F2772C71246E0006A392 /* SpotifyCategoryCell.swift */,
 				C77E371C2C72527B0028001E /* SpotifyRecentsCell.swift */,
 				C77E371E2C7258BF0028001E /* SpotifyNewReleaseCell.swift */,
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7DC155D2C7816F900C641CD /* ImageTileCell.swift in Sources */,
 				C76DBAAD2C70FF1C00F52A78 /* ImageLoaderView.swift in Sources */,
 				C7A5F27B2C71265A0006A392 /* Category.swift in Sources */,
 				C7A5F2782C71246E0006A392 /* SpotifyCategoryCell.swift in Sources */,
